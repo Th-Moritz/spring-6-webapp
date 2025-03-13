@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Spring Framework</title>
+</head>
+<body>
+<h1>Author List</h1>
+
+<table>
+    <tr>
+        <th>ID</th>
+        <th>Title</th>
+        <th>Publisher</th>
+        <th>Book Titles</th>
+    </tr>
+    <tr th:each="author : ${authors}">
+        <td th:text="${author.id}">Replace Id</td>
+        <td th:text="${author.getFirstName()}">Display Firstname</td>
+        <td th:text="${author.getLastName()}">Display Lastname</td>
+        <td th:each="book : ${author.books}" th:text="${book.title}">Display Title</td>
+    </tr>
+</table>
+
+</body>
+</html>
